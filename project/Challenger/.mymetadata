@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="Challenger"
+  id="myeclipse.1472286878982"
+  context-root="/Spring"
+  j2ee-spec="5.0"
+  archive="Challenger.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+
