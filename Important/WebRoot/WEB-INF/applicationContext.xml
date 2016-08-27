@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<!-- 定义数据源信息 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass">
+			<value>oracle.jdbc.driver.OracleDriver</value></property>
+		<property name="jdbcUrl">
+			<value>jdbc:oracle:thin:@localhost:1521:sample</value></property>
+		<property name="user">
+			<value>jack</value></property>
+		<property name="password">
+			<value>admin</value></property>
+		<property name="maxPoolSize">
+			<value>80</value></property>
+		<property name="minPoolSize">
+			<value>1</value></property>
+		<property name="initialPoolSize">
+			<value>1</value></property>
+		<property name="maxIdleTime">
+			<value>20</value></property></bean>
+	
+	<!-- 定义hibernate的sessionFactory   -->
+	<!-- SessionFactory 使用上面的数据源 -->
+	<!-- 指定hibernate 的映射文件和配置信息 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!--  
+		<property name="configLocation"
+			value="classpath:hibernate.cfg.xml">
+		</property>
+		-->
+		<property name="dataSource">
+			<ref local="dataSource"/>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>players/beans/Player.hbm.xml</value>
+				<value>players/beans/Users.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+				<prop key="show_sql">true</prop>
+				<prop key="hibernate.jdbc.batch_size">20</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- 事务 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="baseDao" class="daoImpl.PlayerDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 用户注册业务逻辑类 -->
+	<bean id="playerManager" class="players.serviceImpl.PlayerManagerImpl">
+		<property name="baseDao" >
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<!-- 用户注册的action -->
+	<bean id="regAction" class="players.action.RegistAction">
+		<property name="playerManager">
+			<ref bean="playerManager"/>
+		</property>
+	</bean>
+</beans>
+
+
+
+
+
+
+
+
+
