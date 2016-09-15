@@ -1,7 +1,0 @@
-
-//
-1.对于表单是否有存在的必要
-	<1.表单会传递servletRequest给其他的组件，类似于Validator。而ServletRequest是Servlet层的对象，不应当
-	暴露给应用的其他层
-	<2.当数据校验失败时，表单对象将用于保存和展示用户在原始表单上的输入
-	<3.表单不需要实现Serializable接口，因为表单对象很少保存在HttpSession中

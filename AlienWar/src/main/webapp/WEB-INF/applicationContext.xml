@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"      
+    xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	       http://www.springframework.org/schema/context
+	        http://www.springframework.org/schema/context/spring-context-2.5.xsd      
+                http://www.springframework.org/schema/tx 
+                http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- 定义数据源信息 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass">
+			<value>oracle.jdbc.driver.OracleDriver</value></property>
+		<property name="jdbcUrl">
+			<value>jdbc:oracle:thin:@localhost:1521:sample</value></property>
+		<property name="user">
+			<value>jack</value></property>
+		<property name="password">
+			<value>admin</value></property>
+		<property name="maxPoolSize">
+			<value>80</value></property>
+		<property name="minPoolSize">
+			<value>1</value></property>
+		<property name="initialPoolSize">
+			<value>1</value></property>
+		<property name="maxIdleTime">
+			<value>20</value></property></bean>
+	
+	<!-- 定义hibernate的sessionFactory   -->
+	<!-- SessionFactory 使用上面的数据源 -->
+	<!-- 指定hibernate 的映射文件和配置信息 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<!--  
+		<property name="configLocation"
+			value="classpath:hibernate.cfg.xml">
+		</property>
+		-->
+		<property name="dataSource">
+			<ref local="dataSource"/>
+		</property>
+	
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+				<prop key="show_sql">true</prop>
+				<prop key="hibernate.jdbc.batch_size">20</prop>
+			</props>
+		</property>
+	</bean>
+	
+	 <bean id="alienDao" class="com.alienwar.demo.daoimpl.AlienDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean> 
+	
+</beans>
+
+
+
+
+
+
+
+
+

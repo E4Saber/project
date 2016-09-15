@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="AlienWar"
+  id="myeclipse.1473696298699"
+  context-root="/AlienWar"
+  j2ee-spec="6.0"
+  archive="AlienWar.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+
