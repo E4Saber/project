@@ -3,7 +3,6 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -45,16 +44,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <h2>文件上传</h2><br/>
    <div>
-    	<sf:form commandName="alienFile" action="fileUpload" method="post" enctype="multipart/form-data">
+   <!-- 
+   SF:form   出错
+   ???????????????????? 
+   	严重: Servlet.service() for servlet [jsp] in context with path [/AlienWar] threw exception
+   	 [An exception occurred processing JSP page /index.jsp at line 52
+   	
+   	java.lang.IllegalStateException: 
+   	Neither BindingResult nor plain target object for bean name 'command' available as request attribute
+   	
+
+    -->
+    	<form  action="fileUpload" method="post" enctype="multipart/form-data">
     		<fieldset>
     			<legend>Add A AlienFile</legend>
     			<p>
     				<label for="alienNo">AlienNo:</label>
-    				<sf:input path="alienNo" cssErrorClass="error"/>
-    				<sf:errors path="alienNo" cssClass="error"/>
+    				<input type="text" name="alienNo" /><br/>
     			</p>
     			<p>
-    				<label for="fileUpload">FileUpload:</label>
+    				<label for="imageFile">FileUpload:</label>
     				<input type="file" name="imageFile[0]">
     			</p>
     			<p id="buttons">
@@ -62,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     				<input id="submit" type="submit" tabindex="5">
     			</p>
     		</fieldset>
-   		 </sf:form>
+   		 </form>
    	</div>
     
   </body>

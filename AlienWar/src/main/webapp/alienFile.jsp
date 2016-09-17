@@ -34,8 +34,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<ol>
   			<c:forEach items="${alienFile.imageFile }" var="image">
   				<li>
-  					${image.originamFilename}
-  					<img alt="preview failed" src="<c:url value="/image/"/> ${image.originalFilename}"/>
+  					${imageFile.originamFilename}
+  					<img alt="preview failed" src="<c:url value="/image/"/> ${imageFile.originalFilename}"/>
   				</li>
   			</c:forEach>
   		</ol>
