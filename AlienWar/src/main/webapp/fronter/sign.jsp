@@ -8,18 +8,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="My Play Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="application/x-javascript"> 
+	addEventListener("load", function() { 
+		setTimeout(hideURLbar, 0); 
+		}, false
+	); 
+	function hideURLbar()	{ 
+		window.scrollTo(0,1); 
+	} 
+</script>
 <!-- bootstrap -->
-<link href="css/signbootstrap.min.css" rel='stylesheet' type='text/css' media="all" />
+<link href="<c:url value="/resource/css/signbootstrap.min.css"/>" rel='stylesheet' type='text/css' media="all" />
 <!-- //bootstrap -->
-<link href="css/signpopuo-box.css" rel="stylesheet" type="text/css" media="all" />
-<!-- Custom Theme files -->
-<!-- <link href="css/signstyle.css" rel='stylesheet' type='text/css' media="all" />
- -->
- <script src="js/jquery-1.11.0.min.js"></script>
-<!--start-smoth-scrolling-->
-<!-- fonts -->
-<!-- //fonts -->
+<link href="<c:url value="/resource/css/signpopuo-box.css"/>" rel="stylesheet" type="text/css" media="all" />
+ <script src="<c:url value="/resource/js/jquery-1.11.0.min.js"/>"></script>
 </head>
   <body>
 
@@ -30,8 +32,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="signin" >
 					<!-- <a href="#small-dialog2" class="play-icon popup-with-zoom-anim">Sign Up</a> -->
 					<!-- pop-up-box -->
-									<script type="text/javascript" src="js/modernizr.custom.min-sign.js"></script>    							
-									<script src="js/jquery.magnific-popup-sign.js" type="text/javascript"></script>
+									<script type="text/javascript" src="<c:url value="/resource/js/modernizr.custom.min-sign.js"/>"></script>    							
+									<script src="<c:url value="/resource/js/jquery.magnific-popup-sign.js"/>" type="text/javascript"></script>
 									<!--//pop-up-box -->
 									<div id="small-dialog2" class="mfp-hide">
 										<h3>Create Account</h3> 

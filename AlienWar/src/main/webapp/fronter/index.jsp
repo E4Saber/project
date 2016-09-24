@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <title>Home</title>
@@ -17,12 +17,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		function hideURLbar(){ window.scrollTo(0,1); 
 		} 
 </script>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<link href="css/style.css" rel='stylesheet' type='text/css' />
-<script src="js/jquery-1.11.0.min.js"></script>
+<link href="<c:url value="/resource/css/bootstrap.css"/>" rel='stylesheet' type='text/css' />
+<link href="<c:url value="/resource/css/style.css"/>" rel='stylesheet' type='text/css' />
+<script src="<c:url value="/resource/js/jquery-1.11.0.min.js"/>"></script>
 <!---- start-smoth-scrolling---->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="<c:url value="/resource/js/move-top.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resource/js/easing.js"/>"></script>
 <script type="text/javascript">
 			jQuery(document).ready(function($) {
 				$(".scroll").click(function(event){		
@@ -34,104 +34,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--start-smoth-scrolling-->
 </head>
 <body>
-	<!--header-->
-	<div class="header-top" id="home">
-		<div class="container">
-			<div class="header-logo">
-				<a href="fronter/index.html"><img src="images/logo.png" alt=""/></a>
-			</div>
-			<%@ include file="sign.jsp" %>
-			<div class="top-nav">
-				<span class="menu"><img src="images/menu-icon.png" alt=""/></span>
-				<ul class="nav1">
-					<li><a href="fronter/index.jsp">主页 </a></li>
-					<li><a href="magazine.html">杂志</a></li>
-					<li><a href="strange-buildings.html">奇怪的建筑</a></li>
-					<li><a href="404.html">建筑学</a></li>
-					<li><a href="blog.html">博客</a></li>
-					<li><a href="news.html">新闻</a></li>					
-				</ul>
-				
-				<!-- script-for-menu -->
-				 <script>
-				   $( "span.menu" ).click(function() {
-					 $( "ul.nav1" ).slideToggle( 300, function() {
-					 // Animation complete.
-					  });
-					 });
-				</script>
-				<!-- /script-for-menu -->
-			</div>
-			<div class="social-icons">
-				<ul>
-					<li><a href="#"><span class="twit"> </span></a></li>
-					<li><a href="#"><span class="fb"> </span></a></li>
-					<li><a href="#"><span class="g"> </span></a></li>
-				</ul>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-		<div class="search-box">
-			<div id="sb-search" class="sb-search">
-				<form>
-					<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
-					<input class="sb-search-submit" type="submit" value="">
-					<span class="sb-icon-search"> </span>
-				</form>
-			</div>
-		</div>
-		<div class="header-info-right">
-				<div class="header cbp-spmenu-push">
-					<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-							<a href="#small-dialog" class="play-icon popup-with-zoom-anim">SIGN UP</a>
-							<a href="#small-dialog2" class="play-icon popup-with-zoom-anim">SIGN IN</a>
-							<a href="upload.html">STRANGE BUILDINGS</a>
-							<a href="404.html">ARCHITECTURE</a>
-							<a href="blog.html">BLOG</a>
-							<a href="news.html">NEWS</a>
-					</nav>
-					<!--script-nav -->	
-					<script>
-						$("span.menu").click(function(){
-							$("ul.navigatoin").slideToggle("300" , function(){
-							});
-						});
-					</script>
-					<script type="text/javascript">
-								jQuery(document).ready(function($) {
-									$(".scroll").click(function(event){		
-										event.preventDefault();
-										$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-									});
-								});
-					</script>
-					<div class="clearfix"> </div>
-						<!-- /script-nav -->
-									<div class="main">
-										<section class="buttonset">
-											<button id="showLeftPush"><img src="images/menu.png" /><span>Menu</span></button>
-										</section>
-									</div>
-									<script src="js/classie.js"></script>
-									<script>
-										var	menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-											showLeftPush = document.getElementById( 'showLeftPush' ),
-											body = document.body;
-							
-										showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-									</script>
-				</div>
-			</div>
-	</div>
-	<!--//header-->
+    <!-- header -->
+	<%@ include file="/fronter/header.jsp" %>
+	
 	<!--search-scripts-->
-					<script src="js/classie.js"></script>
-					<script src="js/uisearch.js"></script>
+					<script src="<c:url value="/resource/js/classie.js"/>"></script>
+					<script src="<c:url value="/resource/js/uisearch.js"/>"></script>
 						<script>
 							new UISearch( document.getElementById( 'sb-search' ) );
 						</script>
@@ -153,7 +61,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--slide-->
 	<div class="gallery-cursual">
 		<!-- requried-jsfiles-for owl -->
-		<link href="css/owl.carousel.css" rel="stylesheet">
+		<link href="<c:url value="/resource/css/owl.carousel.css"/>" rel="stylesheet">
 			<script>
 				$(document).ready(function() {
 					$("#owl-demo").owlCarousel({
@@ -168,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- start content_slider -->
 		<div id="owl-demo" class="owl-carousel text-center">
 			<div class="item g1 popup-with-zoom-anim" href="#small-dialog">
-				<img class="lazyOwl" data-src="images/slide-1.jpg" alt="name">
+				<img class="lazyOwl" data-src="<c:url value="/resource/images/slide-1.jpg"/>" alt="name">
 				<div class="caption">
 					<h3>Vanglo House by LWPAC in canada</h3>
 					<div class="s-btn">
@@ -177,7 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="item g1 popup-with-zoom-anim" href="#small-dialog1">
-				<img class="lazyOwl" data-src="images/slide-2.jpg" alt="name">
+				<img class="lazyOwl" data-src="<c:url value="/resource/images/slide-2.jpg"/>" alt="name">
 				<div class="caption">
 					<h3>Vanglo House by LWPAC in canada</h3>
 					<div class="s-btn">
@@ -186,7 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="item g1 popup-with-zoom-anim" href="#small-dialog2">
-				<img class="lazyOwl" data-src="images/slide-3.jpg" alt="name">
+				<img class="lazyOwl" data-src="<c:url value="/resource/images/slide-3.jpg"/>" alt="name">
 				<div class="caption">
 					<h3>Vanglo House by LWPAC in canada</h3>
 					<div class="s-btn">
@@ -195,7 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="item g1 popup-with-zoom-anim" href="#small-dialog3">
-				<img class="lazyOwl" data-src="images/slide-4.jpg" alt="name">
+				<img class="lazyOwl" data-src="<c:url value="/resource/images/slide-4.jpg"/>" alt="name">
 				<div class="caption">
 					<h3>Vanglo House by LWPAC in canada</h3>
 					<div class="s-btn">
@@ -204,7 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="item g1 popup-with-zoom-anim" href="#small-dialog4">
-				<img class="lazyOwl" data-src="images/slide-5.jpg" alt="name">
+				<img class="lazyOwl" data-src="<c:url value="/resource/images/slide-5.jpg"/>" alt="name">
 				<div class="caption">
 					<h3>Vanglo House by LWPAC in canada</h3>
 					<div class="s-btn">
@@ -213,7 +121,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="item g1 popup-with-zoom-anim" href="#small-dialog5">
-				<img class="lazyOwl" data-src="images/slide-6.jpg" alt="name">
+				<img class="lazyOwl" data-src="<c:url value="/resource/images/slide-6.jpg"/>" alt="name">
 				<div class="caption">
 					<h3>Vanglo House by LWPAC in canada</h3>
 					<div class="s-btn">
@@ -222,7 +130,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="item g1 popup-with-zoom-anim" href="#small-dialog6">
-				<img class="lazyOwl" data-src="images/slide-7.jpg" alt="name">
+				<img class="lazyOwl" data-src="<c:url value="/resource/images/slide-7.jpg"/>" alt="name">
 				<div class="caption">
 					<h3>Vanglo House by LWPAC in canada</h3>
 					<div class="s-btn">
@@ -231,7 +139,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="item g1 popup-with-zoom-anim" href="#small-dialog">
-				<img class="lazyOwl" data-src="images/slide-1.jpg" alt="name">
+				<img class="lazyOwl" data-src="<c:url value="/resource/images/slide-1.jpg"/>" alt="name">
 				<div class="caption">
 					<h3>Vanglo House by LWPAC in canada</h3>
 					<div class="s-btn">
@@ -240,7 +148,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="item g1 popup-with-zoom-anim" href="#small-dialog">
-				<img class="lazyOwl" data-src="images/slide-2.jpg" alt="name">
+				<img class="lazyOwl" data-src="<c:url value="/resource/images/slide-2.jpg"/>" alt="name">
 				<div class="caption">
 					<h3>Vanglo House by LWPAC in canada</h3>
 					<div class="s-btn">
@@ -254,7 +162,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="caption-popup">
 				<div id="small-dialog" class="mfp-hide innercontent">
 					<h4>Vanglo House by LWPAC in canada</h4>
-					<img class="img-responsive cap" src="images/slide-1.jpg" title="postname" />
+					<img class="img-responsive cap" src="<c:url value="/resource/images/slide-1.jpg"/>" title="postname" />
 					<p>elit. Etiam sit amet nunc nec magna accumsan ultricies eget a leo. Praesent nec libero aliquet, malesuada nibh et, tincidunt arcu. Aenean porta faucibus nisl. Fusce ultrices nec purus eget consequat. Phasellus pharetra dignissim lacus id rhoncus. In malesuada et mi non mollis. </p>
 					<a class="morebtn" href="#">ReadMore</a>
 				</div>						  
@@ -262,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="caption-popup">
 				<div id="small-dialog1" class="mfp-hide innercontent">
 					<h4>Vanglo House by LWPAC in canada</h4>
-					<img class="img-responsive cap" src="images/slide-2.jpg" title="postname" />
+					<img class="img-responsive cap" src="<c:url value="/resource/images/slide-2.jpg"/>" title="postname" />
 					<p>elit. Etiam sit amet nunc nec magna accumsan ultricies eget a leo. Praesent nec libero aliquet, malesuada nibh et, tincidunt arcu. Aenean porta faucibus nisl. Fusce ultrices nec purus eget consequat. Phasellus pharetra dignissim lacus id rhoncus. In malesuada et mi non mollis. </p>
 					<a class="morebtn" href="#">ReadMore</a>
 				</div>						  
@@ -270,7 +178,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="caption-popup">
 				<div id="small-dialog2" class="mfp-hide innercontent">
 					<h4>Vanglo House by LWPAC in canada</h4>
-					<img class="img-responsive cap" src="images/slide-3.jpg" title="postname" />
+					<img class="img-responsive cap" src="<c:url value="/resource/images/slide-3.jpg"/>" title="postname" />
 					<p>elit. Etiam sit amet nunc nec magna accumsan ultricies eget a leo. Praesent nec libero aliquet, malesuada nibh et, tincidunt arcu. Aenean porta faucibus nisl. Fusce ultrices nec purus eget consequat. Phasellus pharetra dignissim lacus id rhoncus. In malesuada et mi non mollis. </p>
 					<a class="morebtn" href="#">ReadMore</a>
 				</div>						  
@@ -278,7 +186,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="caption-popup">
 				<div id="small-dialog3" class="mfp-hide innercontent">
 					<h4>Vanglo House by LWPAC in canada</h4>
-					<img class="img-responsive cap" src="images/slide-4.jpg" title="postname" />
+					<img class="img-responsive cap" src="<c:url value="/resource/images/slide-4.jpg"/>" title="postname" />
 					<p>elit. Etiam sit amet nunc nec magna accumsan ultricies eget a leo. Praesent nec libero aliquet, malesuada nibh et, tincidunt arcu. Aenean porta faucibus nisl. Fusce ultrices nec purus eget consequat. Phasellus pharetra dignissim lacus id rhoncus. In malesuada et mi non mollis. </p>
 					<a class="morebtn" href="#">ReadMore</a>
 				</div>						  
@@ -286,7 +194,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="caption-popup">
 				<div id="small-dialog4" class="mfp-hide innercontent">
 					<h4>Vanglo House by LWPAC in canada</h4>
-					<img class="img-responsive cap" src="images/slide-5.jpg" title="postname" />
+					<img class="img-responsive cap" src="<c:url value="/resource/images/slide-5.jpg"/>" title="postname" />
 					<p>elit. Etiam sit amet nunc nec magna accumsan ultricies eget a leo. Praesent nec libero aliquet, malesuada nibh et, tincidunt arcu. Aenean porta faucibus nisl. Fusce ultrices nec purus eget consequat. Phasellus pharetra dignissim lacus id rhoncus. In malesuada et mi non mollis. </p>
 					<a class="morebtn" href="#">ReadMore</a>
 				</div>						  
@@ -294,7 +202,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="caption-popup">
 				<div id="small-dialog5" class="mfp-hide innercontent">
 					<h4>Vanglo House by LWPAC in canada</h4>
-					<img class="img-responsive cap" src="images/slide-6.jpg" title="postname" />
+					<img class="img-responsive cap" src="<c:url value="/resource/images/slide-6.jpg"/>" title="postname" />
 					<p>elit. Etiam sit amet nunc nec magna accumsan ultricies eget a leo. Praesent nec libero aliquet, malesuada nibh et, tincidunt arcu. Aenean porta faucibus nisl. Fusce ultrices nec purus eget consequat. Phasellus pharetra dignissim lacus id rhoncus. In malesuada et mi non mollis. </p>
 					<a class="morebtn" href="#">ReadMore</a>
 				</div>						  
@@ -302,7 +210,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="caption-popup">
 				<div id="small-dialog6" class="mfp-hide innercontent">
 					<h4>Vanglo House by LWPAC in canada</h4>
-					<img class="img-responsive cap" src="images/slide-7.jpg" title="postname" />
+					<img class="img-responsive cap" src="<c:url value="/resource/images/slide-7.jpg"/>" title="postname" />
 					<p>elit. Etiam sit amet nunc nec magna accumsan ultricies eget a leo. Praesent nec libero aliquet, malesuada nibh et, tincidunt arcu. Aenean porta faucibus nisl. Fusce ultrices nec purus eget consequat. Phasellus pharetra dignissim lacus id rhoncus. In malesuada et mi non mollis. </p>
 					<a class="morebtn" href="#">ReadMore</a>
 				</div>						  
@@ -327,9 +235,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<!-- /caption-popup -->
 		<!---pop-up-box---->
-				<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
-				<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-				<script src="js/owl.carousel.js"></script>
+				<link href="<c:url value="/resource/css/popuo-box.css"/>" rel="stylesheet" type="text/css" media="all"/>
+				<script src="<c:url value="/resource/js/jquery.magnific-popup.js"/>" type="text/javascript"></script>
+				<script src="<c:url value="/resource/js/owl.carousel.js"/>"></script>
 		<!---//pop-up-box---->
 	<!--slide-->
 	<!--address-->
@@ -347,7 +255,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="articles-top">
 				<div class="col-md-4 articles-left">
 					<div class="art-one">
-						<a href="single.html"><img src="images/art-1.jpg" alt="" /></a>
+						<a href="single.html"><img src="<c:url value="/resource/images/art-1.jpg"/>" alt="" /></a>
 						<div class="art-btm">
 							<a href="single.html"><h3>Vanglo House By LWPAC in Canda</h3></a>
 							<p>Amazing Gabion Ideas for Outdoors A Gabion is a cage box or cylinder filled with rocks, concrete, or sometimes sand and soil and It is a great way to decorate your outdoor</p>
@@ -360,7 +268,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
 					<div class="art-one sponser">
-						<a href="single.html"><img src="images/art-3.jpg" alt="" /></a>
+						<a href="single.html"><img src="<c:url value="/resource/images/art-3.jpg"/>" alt="" /></a>
 						<div class="art-btm">
 							<a href="single.html"><h3>Vanglo House By LWPAC in Canda</h3></a>
 							<p>Amazing Gabion Ideas for Outdoors A Gabion is a cage box or cylinder filled with rocks, concrete, or sometimes sand and soil and It is a great way to decorate your outdoor</p>
@@ -374,7 +282,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
 					<div class="art-one">
-						<a href="single.html"><img src="images/art-5.jpg" alt="" /></a>
+						<a href="single.html"><img src="<c:url value="/resource/images/art-5.jpg"/>" alt="" /></a>
 						<div class="art-btm">
 							<a href="single.html"><h3>Vanglo House By LWPAC in Canda</h3></a>
 							<p>Amazing Gabion Ideas for Outdoors A Gabion is a cage box or cylinder filled with rocks, concrete, or sometimes sand and soil and It is a great way to decorate your outdoor</p>
@@ -389,7 +297,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-4 articles-left">
 					<div class="art-one">
-						<a href="single.html"><img src="images/art-2.jpg" alt="" /></a>
+						<a href="single.html"><img src="<c:url value="/resource/images/art-2.jpg"/>" alt="" /></a>
 						<div class="art-btm">
 							<a href="single.html"><h3>Vanglo House By LWPAC in Canda</h3></a>
 							<p>Amazing Gabion Ideas for Outdoors A Gabion is a cage box or cylinder filled with rocks,</p>
@@ -402,7 +310,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
 					<div class="art-one">
-						<a href="single.html"><img src="images/art-4.jpg" alt="" /></a>
+						<a href="single.html"><img src="<c:url value="/resource/images/art-4.jpg"/>" alt="" /></a>
 						<div class="art-btm">
 							<a href="single.html"><h3>Vanglo House By LWPAC in Canda</h3></a>
 							<p>Amazing Gabion Ideas for Outdoors A Gabion is a cage box or cylinder filled with rocks, concrete, or sometimes sand and soil and It is a</p>
@@ -415,7 +323,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
 					<div class="art-one">
-						<a href="single.html"><img src="images/art-1.jpg" alt="" /></a>
+						<a href="single.html"><img src="<c:url value="/resource/images/art-6.jpg"/>" alt="" /></a>
 						<div class="art-btm">
 							<a href="single.html"><h3>Vanglo House By LWPAC in Canda</h3></a>
 							<p>Amazing Gabion Ideas for Outdoors A Gabion is a cage box or cylinder filled with rocks, concrete, or sometimes sand and soil and It is a great way to decorate your outdoor</p>
@@ -435,7 +343,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
 								<div class="portfolio-wrapper">		
 									<a href="images/week-1.jpg" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								     <img src="images/week-1.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
+								     <img src=<c:url value="/resource/images/week-1.jpg"/> /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
 								     	<span></span>
 								     	</h2>
 								  	 </div></a>
@@ -446,7 +354,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
 								<div class="portfolio-wrapper">		
 									<a href="images/week-2.jpg" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								     <img src="images/week-2.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
+								     <img src="<c:url value="/resource/images/week-2.jpg"/>" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
 								     	<span></span>
 								     	</h2>
 								  	 </div></a>
@@ -459,7 +367,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
 								<div class="portfolio-wrapper">		
 									<a href="images/week-3.jpg" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								     <img src="images/week-3.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
+								     <img src="<c:url value="/resource/images/week-3.jpg"/>" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
 								     	<span class="one"></span>
 								     	</h2>
 								  	 </div></a>
@@ -470,7 +378,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
 								<div class="portfolio-wrapper">		
 									<a href="images/week-4.jpg" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								     <img src="images/week-4.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
+								     <img src="<c:url value="/resource/images/week-4.jpg"/>" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
 								     	<span class="one"></span>
 								     	</h2>
 								  	 </div></a>
@@ -481,7 +389,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
 								<div class="portfolio-wrapper">		
 									<a href="images/week-5.jpg" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								     <img src="images/week-5.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
+								     <img src="<c:url value="/resource/images/week-5.jpg"/>" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
 								     	<span class="one"></span>
 								     	</h2>
 								  	 </div></a>
@@ -495,7 +403,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
 								<div class="portfolio-wrapper">		
 									<a href="images/week-6.jpg" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								     <img src="images/week-6.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
+								     <img src="<c:url value="/resource/images/week-6.jpg"/>" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
 								     	<span class="one"></span>
 								     	</h2>
 								  	 </div></a>
@@ -506,7 +414,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
 								<div class="portfolio-wrapper">		
 									<a href="images/week-7.jpg" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								     <img src="images/week-7.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
+								     <img src="<c:url value="/resource/images/week-7.jpg"/>" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
 								     	<span class="one"></span>
 								     	</h2>
 								  	 </div></a>
@@ -517,7 +425,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
 								<div class="portfolio-wrapper">		
 									<a href="images/week-8.jpg" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								     <img src="images/week-8.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
+								     <img src="<c:url value="/resource/images/week-8.jpg"/>" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
 								     	<span class="one"></span>
 								     	</h2>
 								  	 </div></a>
@@ -531,7 +439,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
 								<div class="portfolio-wrapper">		
 									<a href="images/week-9.jpg" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								     <img src="images/week-9.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
+								     <img src="<c:url value="/resource/images/week-9.jpg"/>" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
 								     	<span class="one"></span>
 								     	</h2>
 								  	 </div></a>
@@ -542,7 +450,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
 								<div class="portfolio-wrapper">		
 									<a href="images/week-10.jpg" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								     <img src="images/week-10.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
+								     <img src="<c:url value="/resource/images/week-10.jpg"/>" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
 								     	<span class="one"></span>
 								     	</h2>
 								  	 </div></a>
@@ -553,7 +461,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
 								<div class="portfolio-wrapper">		
 									<a href="images/week-11.jpg" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								     <img src="images/week-11.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
+								     <img src="<c:url value="/resource/images/week-11.jpg"/>" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
 								     	<span class="one"></span>
 								     	</h2>
 								  	 </div></a>
@@ -563,7 +471,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="clearfix"></div>
 					</div>
 					<div class="art-one">
-						<a href="single.html"><img src="images/week-12.jpg" alt="" /></a>
+						<a href="single.html"><img src="<c:url value="/resource/images/week-12.jpg"/>" alt="" /></a>
 						<div class="art-btm">
 							<a href="single.html"><h3>Vanglo House By LWPAC in Canda</h3></a>
 							<p>Amazing Gabion Ideas for Outdoors A Gabion is a cage box or cylinder filled with rocks, concrete, or sometimes sand and soil and It is a </p>
@@ -576,7 +484,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
 					<div class="art-one">
-						<a href="single.html"><img src="images/week-13.jpg" alt="" /></a>
+						<a href="single.html"><img src="<c:url value="/resource/images/week-13.jpg"/>" alt="" /></a>
 						<div class="art-btm">
 							<a href="single.html"><h3>Vanglo House By LWPAC in Canda</h3></a>
 							<p>Amazing Gabion Ideas for Outdoors A Gabion is a cage box or cylinder filled with rocks, concrete, or sometimes sand and soil and It is a great way to decorate your outdoor</p>
@@ -599,15 +507,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	</div>
 	<!--articles-->
-	<link rel="stylesheet" href="css/swipebox.css">
-	<script src="js/jquery.swipebox.min.js"></script> 
+	<link rel="stylesheet" href="<c:url value="/resource/css/swipebox.css"/>">
+	<script src="<c:url value="/resource/js/jquery.swipebox.min.js"/>"></script> 
 	    <script type="text/javascript">
 			jQuery(function($) {
 				$(".swipebox").swipebox();
 			});
 		</script>
 	<!-- Portfolio Ends Here -->
-	<script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+	<script type="text/javascript" src="<c:url value="/resource/js/jquery.mixitup.min.js"/>"></script>
 <script type="text/javascript">
 $(function () {
 	
@@ -659,7 +567,7 @@ $(function () {
 					<p>Leave your Ads Here</p>
 				</div>
 				<div class="col-md-2 add-right">
-					<img src="images/add.png" alt="" />
+					<img src="<c:url value="/resource/images/add.png"/>" alt="" />
 					<h3>Advertisement</h3>
 				</div>
 				<div class="clearfix"></div>
@@ -717,7 +625,7 @@ $(function () {
 					<div class="read-btm">
 						<div class="read-one">
 							<div class="col-md-3 read-bottom-left">
-								<img src="images/read-1.jpg" alt="" />
+								<img src="<c:url value="/resource/images/read-1.jpg"/>" alt="" />
 							</div>
 							<div class="col-md-9 read-bottom-right">
 								<h4>Captivating Spanish Villa in Port d’Andratx Boasting Exceptional Views</h4>
@@ -727,7 +635,7 @@ $(function () {
 						</div>
 						<div class="read-one">
 							<div class="col-md-3 read-bottom-left">
-								<img src="images/read-1.jpg" alt="" />
+								<img src="<c:url value="/resource/images/read-1.jpg"/>" alt="" />
 							</div>
 							<div class="col-md-9 read-bottom-right">
 								<h4>Captivating Spanish Villa in Port d’Andratx Boasting Exceptional Views</h4>
@@ -753,36 +661,8 @@ $(function () {
 		</div>
 	</div>
 	<!--read-->
-	<!--footer-->
-	<div class="footer">
-		<div class="container">
-			<div class="footer-top">
-				<div class="col-md-6 footer-left">
-					<p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="">&#x7F51;&#x9875;&#x6A21;&#x677F;</a> - More Templates <a href="" target="_blank" title="模板之家">模板之家</a></p>
-				</div>
-				<div class="col-md-6 footer-right">
-					<a href="index.html"><img src="images/lg.png" alt="" /></a>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<script type="text/javascript">
-									$(document).ready(function() {
-										/*
-										var defaults = {
-								  			containerID: 'toTop', // fading element id
-											containerHoverID: 'toTopHover', // fading element hover id
-											scrollSpeed: 1200,
-											easingType: 'linear' 
-								 		};
-										*/
-										
-										$().UItoTop({ easingType: 'easeOutQuart' });
-										
-									});
-								</script>
-		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-	</div>
-	<!--footer-->
+	
+	<!-- footer -->
+	<%@ include file="/fronter/footer.jsp" %>
 </body>
 </html>

@@ -1,3 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
-encoding//src/main/webapp/index.jsp=UTF-8
+encoding//src/main/webapp/fronter/footer.jsp=UTF-8
+encoding//src/main/webapp/fronter/magazine.jsp=UTF-8
+encoding//src/main/webapp/in_game/gameTest.jsp=UTF-8
+encoding//src/main/webapp/inde.jsp=UTF-8

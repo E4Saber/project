@@ -13,7 +13,7 @@
                 http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
 	<!-- 定义数据源信息 -->
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+<!-- 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass">
 			<value>oracle.jdbc.driver.OracleDriver</value></property>
 		<property name="jdbcUrl">
@@ -29,35 +29,22 @@
 		<property name="initialPoolSize">
 			<value>1</value></property>
 		<property name="maxIdleTime">
-			<value>20</value></property></bean>
+			<value>20</value></property></bean> -->
 	
 	<!-- 定义hibernate的sessionFactory   -->
 	<!-- SessionFactory 使用上面的数据源 -->
 	<!-- 指定hibernate 的映射文件和配置信息 -->
-	<bean id="sessionFactory"
+	<!-- <bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<!--  
+		 
 		<property name="configLocation"
-			value="classpath:hibernate.cfg.xml">
-		</property>
-		-->
-		<property name="dataSource">
+			value="classpath:conf/hibernate.cfg.xml">
+		</property> -->
+		
+		<!-- <property name="dataSource">
 			<ref local="dataSource"/>
-		</property>
-	
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
-				<prop key="show_sql">true</prop>
-				<prop key="hibernate.jdbc.batch_size">20</prop>
-			</props>
-		</property>
-	</bean>
-	
-	 <bean id="alienDao" class="com.alienwar.demo.daoimpl.AlienDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean> 
-	
+		</property> -->
+	<!-- </bean> -->
 </beans>
 
 
